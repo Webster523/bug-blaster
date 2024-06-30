@@ -21,6 +21,13 @@ const TicketForm = () => {
         // 每种event都会有一些默认行为，form的obSubmit事件的默认行为是重新加载这个from
         e.preventDefault();
 
+        const ticketData = {
+            id: new Date().toISOString(),
+            title,
+            description,
+            priority
+        }
+
         clearForm();
     }
 
