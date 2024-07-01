@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const TicketForm = () => {
+const TicketForm = ({dispatch}) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [priority, setPriority] = useState("1");
@@ -28,6 +28,11 @@ const TicketForm = () => {
             priority
         }
 
+        dispatch({
+            type: "ADD_TICKET",
+            payload: ticketData
+        })
+
         clearForm();
     }
 
@@ -40,7 +45,7 @@ const TicketForm = () => {
 
             <div>
                 <label>Description</label>
-                <textarea value={title} className="form-input"
+                <textarea value={description} className="form-input"
                           onChange={(e) => setDescription(e.target.value)}/>
             </div>
 
