@@ -46,6 +46,11 @@ const TicketForm = ({dispatch, editingTicket }) => {
         clearForm();
     }
 
+    const handleCancelEdit = () => {
+        dispatch({type: "CLEAR_EDITING_TICKET"})
+        clearForm();
+    }
+
     return (
         <form className="ticket-form" onSubmit={handleSubmit}>
             <div>
@@ -71,6 +76,10 @@ const TicketForm = ({dispatch, editingTicket }) => {
             </fieldset>
 
             <button type="submit" className="button">Submit</button>
+
+            {editingTicket && (
+                <button className="button" onClick={handleCancelEdit}>Cancel Edit</button>
+            )}
         </form>
     )
 }
